@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: web-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/qsyx3/k8s-test.git
+    targetRevision: HEAD
+    path: argo/web-app
+    directory:
+      recurse: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: web-app
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
