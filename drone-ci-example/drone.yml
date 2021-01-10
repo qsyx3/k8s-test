@@ -17,7 +17,7 @@ steps:
   commands:
   - sleep 5 ## give docker enough time to start
   - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-  - docker build ./golang -t qsyx2/test:1.0.0
+  - docker build ./golang-example -t qsyx2/test:1.0.0
   - docker push qsyx2/test:1.0.0
 
 services:
